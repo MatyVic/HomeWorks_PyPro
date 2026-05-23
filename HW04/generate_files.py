@@ -1,6 +1,6 @@
 import csv
 
-
+print(ff)
 def gen_csv():
     products = [
         ["name", "category", "price", "quantity"],
