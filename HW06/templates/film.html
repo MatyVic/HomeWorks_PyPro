@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ film.film }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="film-container">
+        <h2>{{ film.film }}</h2>
+        <img src="{{ url_for('static', filename='posters/' ~ film.poster) }}"
+             alt="Постер {{ film.film }}" class="film-poster">
+
+        <p><strong>Режисер:</strong> {{ film.director }}</p>
+        <p><strong>У ролях:</strong> {{ film.cast }}</p>
+        <p><strong>Опис:</strong> {{ film.description }}</p>
+        <p><strong>Дата перегляду:</strong> {{ film.whatch_date }}</p>
+        <p><strong>Оцінка:</strong> {{ film.rating }} ⭐</p>
+    </div>
+
+    <div class="form-wrapper">
+        <button class="toggle-btn" onclick="toggleForm()">✏️ Редагувати фільм</button>
+
+        <div id="edit-form" class="form-container">
+            <h3>Редагувати фільм</h3>
+            <!-- форма без action/method -->
+            <form id="patchForm" enctype="multipart/form-data">
+                <input type="text" name="film_name" value="{{ film.film }}" required>
+                <input type="text" name="director_name" value="{{ film.director }}" required>
+                <input type="text" name="cast_text" value="{{ film.cast }}" required>
+                <input type="text" name="discrp_text" value="{{ film.description }}" required>
+                <input type="date" name="whatch_date" value="{{ film.whatch_date }}" required>
+                <input type="file" name="poster" accept="image/*">
+
+                <label for="rating">Оцінка:</label>
+                <select name="rating" id="rating" required>
+                    <option value="1" {% if film.rating == "1" %}selected{% endif %}>1 ⭐</option>
+                    <option value="2" {% if film.rating == "2" %}selected{% endif %}>2 ⭐⭐</option>
+                    <option value="3" {% if film.rating == "3" %}selected{% endif %}>3 ⭐⭐⭐</option>
+                    <option value="4" {% if film.rating == "4" %}selected{% endif %}>4 ⭐⭐⭐⭐</option>
+                    <option value="5" {% if film.rating == "5" %}selected{% endif %}>5 ⭐⭐⭐⭐⭐</option>
+                </select>
+
+                <button type="submit">Зберегти зміни</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-text">
+           © 2026 Мій сайт. Усі права захищені.
+        </div>
+        <div class="footer-links">
+            <a href="{{ url_for('about') }}">Про сайт</a>
+        </div>
+    </footer>
+
+   <script>
+    function toggleForm() {
+        const form = document.getElementById("edit-form");
+        form.style.display =
+            (form.style.display === "none" || form.style.display === "")
+            ? "block"
+            : "none";
+    }
+
+    document.getElementById("patchForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const data = {
+            film: this.film_name.value,
+            director: this.director_name.value,
+            cast: this.cast_text.value,
+            description: this.discrp_text.value,
+            whatch_date: this.whatch_date.value,
+            rating: this.rating.value
+        };
+
+        const response = await fetch(
+            "{{ url_for('show_film_details', ganre_name=ganre_name, film_id=film_id) }}",
+            {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            }
+        );
+
+        location.reload();
+    });
+</script>
+
+</body>
+</html>

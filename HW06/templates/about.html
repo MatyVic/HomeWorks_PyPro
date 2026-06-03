@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Про сайт</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2">
+</head>
+<body>
+    <div class="about-container">
+        <img src="{{ url_for('static', filename='Hello.jpg') }}" alt="Про сайт" class="about-image">
+        <h2>Про сайт</h2>
+        <p>Цей проєкт створений для збереження та перегляду списку фільмів за жанрами.</p>
+        <p>Ви можете додавати нові жанри, фільми, постери та оцінки.</p>
+        <p>Автор: Віктор</p>
+    </div>
+</body>
+
+<footer class="site-footer">
+    <div class="footer-text">
+       © 2026 Мій сайт. Усі права захищені.
+    </div>
+</footer>
+</html>

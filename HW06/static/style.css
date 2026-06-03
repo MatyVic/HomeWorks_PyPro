@@ -1,0 +1,266 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2c2c3a);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    /* вертикальне вирівнювання */
+    align-items: center;        /* горизонтальне вирівнювання */
+    color: #e0e0e0;
+}
+
+
+.form-container, .list-container {
+    background: #2a2a3d;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+    width: 420px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+h2, h3 {
+    margin-top: 0;
+    color: #f5f5f5;
+}
+
+input[type="text"] {
+    display: block;          /* блочний елемент */
+    margin: 10px auto;       /* автоматичне вирівнювання по центру */
+    width: 80%;              /* трохи менше за контейнер */
+    padding: 12px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #1e1e2f;
+    color: #f0f0f0;
+}
+
+input[type="text"]:focus {
+    border-color: #00aaff;
+    outline: none;
+}
+
+input[type="date"] {
+    display: block;
+    margin: 10px auto;
+    width: 80%;              /* щоб було вирівняно по центру */
+    padding: 12px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #1e1e2f;
+    color: #f0f0f0;
+    transition: border-color 0.3s ease;
+}
+
+input[type="date"]:focus {
+    border-color: #00aaff;
+    outline: none;
+}
+
+input[type="file"], select {
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #1e1e2f;
+    color: #f0f0f0;
+}
+
+select:focus, input[type="file"]:focus {
+    border-color: #00aaff;
+    outline: none;
+}
+button {
+    display: block;
+    margin: 10px auto;       /* по центру */
+    width: 50%;
+    padding: 12px;
+    background: #00aaff;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0088cc;
+}
+
+.list-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-container li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.list-container li:last-child {
+    border-bottom: none;
+}
+
+.list-container a {
+    display: inline-block;   /* щоб виглядало як тег */
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #00aaff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.list-container a:hover {
+    background: #00aaff;
+    color: #fff;
+}
+
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #2a2a3d;
+    text-align: center;
+    padding: 14px;
+    border-top: 1px solid #444;
+}
+
+.footer-links a {
+    display: inline-block;
+    margin: 0 8px;
+    padding: 8px 16px;
+    border-radius: 20px;        /* округлені краї */
+    background: #1e1e2f;
+    color: #00aaff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.footer-links a:hover {
+    background: #00aaff;
+    color: #fff;
+    transform: translateY(-2px); /* легке підняття */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+.about-image {
+    display: block;
+    margin: 20px auto;   /* по центру */
+    max-width: 500px;    /* обмеження ширини */
+    border-radius: 12px; /* округлені краї */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+.film-container {
+    background: #2a2a3d;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+    width: 500px;
+    margin: 20px auto;
+    text-align: center;
+    color: #f0f0f0;
+}
+
+.film-poster {
+    display: block;
+    margin: 15px auto;
+    max-width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.toggle-btn {
+    display: block;       /* щоб зайняла весь рядок */
+    width: 100%;          /* розтягнути на всю ширину контейнера */
+    max-width: 420px;     /* можна обмежити ширину */
+    margin: 0 auto 10px;  /* вирівняти по центру */
+    background: #00aaff;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 18px;
+    padding: 14px 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background: #0088cc;
+}
+
+#edit-form {
+    display: none; /* приховано за замовчуванням */
+}
+
+.film-container {
+    margin-bottom: 20px;   /* відступ вниз, щоб форма не налазила */
+}
+.form-wrapper {
+    margin-top: 20px;      /* відступ зверху */
+}
+
+#edit-form {
+    display: none;         /* прихована за замовчуванням */
+    position: relative;    /* щоб не накладалась поверх */
+    z-index: 1;            /* нижчий пріоритет ніж кнопка */
+}
+
+.film-list {
+    list-style: none;
+    padding: 0;
+}
+
+.film-item {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    background: #2a2a3d;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.film-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #f0f0f0;
+    width: 100%;
+}
+
+.film-thumb {
+    width: 40px;   /* менший постер */
+    height: auto;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.film-title {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.film-rating {
+    color: #ffd700;
+}
+
+.list-container {
+    max-height: 400px;   /* обмежуємо висоту */
+    overflow-y: auto;    /* додаємо вертикальну прокрутку */
+    background: #2a2a3d;
+    padding: 10px;
+    border-radius: 8px;
+}

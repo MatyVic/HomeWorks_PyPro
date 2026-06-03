@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <title>Мій список фільмів</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Додати жанр</h2>
+        <form method="POST">
+            <input type="text" name="ganre_name" placeholder="Введіть жанр" required>
+            <button type="submit">Зберегти</button>
+        </form>
+    </div>
+
+  <div class="list-container">
+    <h3>Список жанрів</h3>
+    <ul>
+        {% for genre in ganres_list %}
+            <li><a href="/genres/{{ genre }}">{{ genre }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-text">
+       © 2026 Мій сайт. Усі права захищені.
+    </div>
+    <div class="footer-links">
+        <a href="{{ url_for('about') }}">Про сайт</a>
+    </div>
+</footer>
+
+</body>
+</html>
