@@ -13,15 +13,6 @@ def save_file(filename, file_data):
         json.dump(file_data, raw_data, ensure_ascii=False, indent=4)
 
 
-def save_poster(file_storage):
-    if not file_storage:
-        return None
-    filename = file_storage.filename
-    save_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
-    file_storage.save(save_path)
-    return filename
-
-
 def make_dict():
     film_name = request.form['film_name']
     director_name = request.form['director_name']
